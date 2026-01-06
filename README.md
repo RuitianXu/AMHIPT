@@ -96,7 +96,6 @@ Due to the proprietary nature of the long-term field dataset, the raw biological
 
 We utilize **SHAP (SHapley Additive exPlanations)** to ensure model transparency. The tool highlights which morphological traits contribute most to the infection probability for each species.
 
-*(You can insert a representative SHAP plot image here)*
 
 ## 📝 Citation
 
