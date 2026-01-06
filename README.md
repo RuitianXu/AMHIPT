@@ -75,6 +75,13 @@ python src/predict.py
 
 *Ensure your input CSV matches the feature columns used during training.*
 
+**Note on Data Availability:**
+Due to the proprietary nature of the long-term field dataset, the raw biological data used in this study is **not publicly available** in this repository.
+
+* **`example_data.xlsx`**: A synthetic dataset provided for demonstration purposes. It allows users to test the pipeline structure.
+* **Pre-trained Models**: We provide the full `models/` directory containing trained XGBoost models. You can use these to predict *your own* data without needing our raw training data.
+* **Access to Raw Data**: Researchers interested in the original dataset may contact the corresponding author upon reasonable request.
+
 ---
 
 ## 📊 Model Performance & Interpretability
