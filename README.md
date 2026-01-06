@@ -92,5 +92,3 @@ If you use AMHIPT in your research, please cite our paper:
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-老师，您先去把代码里的特征 bug 修一下，然后把这两个文件（README.md 和 requirements.txt）加上去，这个仓库就非常完美了！
