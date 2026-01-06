@@ -8,7 +8,9 @@
 
 **AMHIPT** is a machine learning pipeline designed to predict haemosporidian infection status in birds using non-invasive morphological measurements (e.g., beak length, weight). Built on **XGBoost** and interpreted via **SHAP**, it provides a cost-effective screening tool for avian researchers.
 
-![AMHIPT Pipeline Workflow](images/AMHIPT_workflow.png)
+<p align="center">
+  <img src="images/AMHIPT_workflow.png" alt="AMHIPT Workflow" width="85%">
+</p>
 
 ---
 
@@ -16,13 +18,17 @@
 
 ```text
 AMHIPT/
-├── models/                  # Saved models (.pkl) and scalers
-├── data/                    # Example datasets (ensure anonymity)
+├── models/                  # Pre-trained models (.pkl) and Scalers
+├── images/
+│   └── AMHIPT_workflow.png  # Pipeline flowchart
+├── data/
+│   ├── example_data.xlsx    # Synthetic dataset for demonstration
+│   └── generate_dummy_data.py # Script used to generate dummy data
 ├── src/
-│   ├── clean_data.py        # Data preprocessing script
-│   ├── train_model.py       # Main training script with SHAP analysis
-│   └── predict.py           # Prediction script for new samples
-├── requirements.txt         # Dependencies
+│   ├── 01_data_cleaning.py  # Data preprocessing & English mapping
+│   ├── 02_train_model.py    # Model training & SHAP analysis
+│   └── 03_predict.py        # Prediction script for independent data
+├── requirements.txt         # Python dependencies
 └── README.md                # Project documentation
 ````
 
@@ -96,7 +102,7 @@ We utilize **SHAP (SHapley Additive exPlanations)** to ensure model transparency
 
 If you use AMHIPT in your research, please cite our paper:
 
-> **Xi Huang**, [Co-authors], et al. (2024). *Title of Your Paper*. Avian Research. [DOI Link]
+> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang**^*, et al. (2024). *Title of Your Paper*. Avian Research. [DOI Link]
 
 ## 📜 License
 
