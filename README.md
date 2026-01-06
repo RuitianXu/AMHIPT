@@ -102,7 +102,7 @@ We utilize **SHAP (SHapley Additive exPlanations)** to ensure model transparency
 
 If you use AMHIPT in your research, please cite our paper:
 
-> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang**^*, et al. (2024). *Title of Your Paper*. Avian Research. [DOI Link]
+> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***, et al. Revise. *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research. [DOI Link]
 
 ## 📜 License
 
