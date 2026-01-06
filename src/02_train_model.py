@@ -18,7 +18,7 @@ DATA_FILE = 'clean_data.xlsx'
 MODEL_DIR = 'models/'  # Directory to save trained models
 
 # Features used for training (Chinese headers matching the dataset)
-# English mapping: ['Beak Length', 'Head-Beak Length', 'Wing Length', 'Tail Length', 'Weight']
+# English mapping: ['Beak_Length', 'Head_Beak_Length', 'Wing_Length', 'Tail_Length', 'Weight']
 # Note: '跗跖长mm' is intentionally excluded based on feature selection.
 FEATURES = ['喙长mm', '头喙mm', '翼长mm', '尾长mm', '体重g']
 
