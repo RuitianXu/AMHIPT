@@ -33,6 +33,8 @@ AMHIPT/
 └── README.md                # Project documentation
 ````
 
+---
+
 ## 🛠️ Installation
 
 1. Clone the repository:
@@ -47,6 +49,8 @@ AMHIPT/
    ```bash
    pip install -r requirements.txt
    ```
+
+---
 
 ## 🚀 Usage
 
@@ -77,8 +81,6 @@ python src/02_model_train.py
 * Trained models (`.pkl`) for each species
 * SHAP summary plots visualizing feature importance
 * Performance metrics (Accuracy, Log-loss)
-
----
 
 #### **B. Multi-class Classification (Parasite Genus Prediction)**
 
@@ -113,8 +115,6 @@ Our three-round training process revealed that optimal feature combinations vary
 
 **Outputs are saved in timestamped folders, e.g., `models_multiclass_20241215_143022/`**
 
----
-
 ### 3. Prediction on New Data
 
 Use the trained models to predict infection risks for new, independent samples.
@@ -136,14 +136,58 @@ Due to the proprietary nature of the long-term field dataset, the raw biological
 
 ## 📊 Model Performance & Interpretability
 
-We utilize **SHAP (SHapley Additive exPlanations)** to ensure model transparency. The tool highlights which morphological traits contribute most to the infection probability for each species.
+We leverage **XGBoost's built-in feature importance** (based on gain/split metrics) to identify which morphological traits contribute most to infection predictions.
 
+---
+
+## 🗂️ Data Availability
+
+**Note on Data Access:**
+
+Due to the proprietary nature of the long-term field dataset (2009–2024), the raw biological data used in this study is **not publicly available** in this repository.
+
+* **`example_data.xlsx`**: A synthetic dataset provided for demonstration purposes, allowing users to test the pipeline structure.
+* **Pre-trained Models**: We provide the full `models/` directory containing trained XGBoost models, scalers, and label encoders. You can use these to predict infection status in *your own* data without needing our raw training data.
+* **Access to Raw Data**: Researchers interested in the original dataset may contact the corresponding author upon reasonable request.
+
+---
+
+## 🔬 Methodological Details
+
+### Three-Round Training Protocol
+
+To ensure optimal predictive performance, we employed an iterative feature selection strategy:
+
+1. **Round 1:** Training with all five morphological traits
+2. **Round 2:** Training with top three features based on importance scores
+3. **Round 3:** Testing alternative feature combinations based on cross-species importance analysis
+
+The model achieving highest accuracy across all rounds was selected as the final predictive model for each species.
+
+### Temporal Validation Strategy
+
+* **Training data:** 2009–2021 (70% training, 30% internal validation)
+* **Independent test set:** 2023–2024 (temporally separated to assess real-world applicability)
+* This approach prevents data leakage and provides robust evaluation for ongoing monitoring programs
+
+---
 
 ## 📝 Citation
 
 If you use AMHIPT in your research, please cite our paper:
 
-> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***, et al. Revise. *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research. [DOI Link]
+> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***, et al. (In Revision). *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research.
+
+---
+
+## 📧 Contact
+
+For questions about the methodology or data access requests, please contact:
+
+* **Corresponding Author:** Xi Huang ([huangxi@bnu.edu.cn](mailto:huangxi@bnu.edu.cn))
+* **Lead Developer:** Ruitian Xu (GitHub: @RuitianXu)
+
+---
 
 ## 📜 License
 
