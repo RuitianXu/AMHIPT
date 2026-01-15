@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-1.7%2B-green)](https://xgboost.readthedocs.io/)
 
-**Official implementation of the paper: [Insert Your Paper Title Here]**
+**Official implementation of the paper: A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data**
 
 **AMHIPT** is a machine learning pipeline designed to predict haemosporidian infection status in birds using non-invasive morphological measurements (e.g., beak length, weight). Built on **XGBoost** and interpreted via **SHAP**, it provides a cost-effective screening tool for avian researchers.
 
@@ -26,7 +26,8 @@ AMHIPT/
 │   └── generate_dummy_data.py # Script used to generate dummy data
 ├── src/
 │   ├── 01_data_cleaning.py  # Data preprocessing & English mapping
-│   ├── 02_model_train.py    # Model training & Feature importance
+│   ├── 02_model_train.py    # Binary classification: Infection prediction
+│   ├── 02_model_train_multiclass_specific_feature.py # Multi-class: Parasite genus prediction
 │   └── 03_predict.py        # Prediction script for independent data
 ├── requirements.txt         # Python dependencies
 └── README.md                # Project documentation
@@ -59,19 +60,60 @@ python src/clean_data.py
 
 *Key Features Used:* Beak Length, Head-Beak Length, Wing Length, Tail Length, Weight.
 
-### 2. Model Training & Interpretation
+### 2. Model Training
 
-Train the XGBoost models for specific species. This script will automatically:
+AMHIPT supports two types of prediction tasks:
 
-* Train separate models for each species (n > 10).
-* Generate **SHAP summary plots** to visualize feature importance.
-* Save the trained models (`.pkl`) and performance metrics (Log-loss/Accuracy).
+#### **A. Binary Classification (Infection vs. Non-infection)**
+
+Train XGBoost models to predict whether a bird is infected with haemosporidian parasites.
 
 ```bash
-python src/train_model.py
+python src/02_model_train.py
 ```
 
-*Outputs are saved in a timestamped folder, e.g., `models_20241011/`.*
+**Outputs:**
+
+* Trained models (`.pkl`) for each species
+* SHAP summary plots visualizing feature importance
+* Performance metrics (Accuracy, Log-loss)
+
+---
+
+#### **B. Multi-class Classification (Parasite Genus Prediction)**
+
+For infected birds, predict the specific parasite genus (*Haemoproteus*, *Plasmodium*, *Leucocytozoon*).
+
+```bash
+python src/02_model_train_multiclass_specific_feature.py
+```
+
+**Key Features:**
+
+* Uses **species-specific feature subsets** optimized through iterative training
+* Different species achieve optimal accuracy with different feature combinations
+* Automatically handles label encoding for parasite genera
+
+**Species-Specific Feature Selection:**
+
+Our three-round training process revealed that optimal feature combinations vary by species, reflecting the diverse morphological responses to parasitic infection across taxa:
+
+| **Species**                | **Sample Size** | **Infected** | **Selected Features**                                                  | **Accuracy** |
+| -------------------------- | --------------- | ------------ | ---------------------------------------------------------------------- | ------------ |
+| *Pardaliparus venustulus*  | 145             | 103          | Beak length / Head-beak length / Body mass                             | 0.841        |
+| *Aegithalos glaucogularis* | 72              | 25           | Beak length / Head-beak length / Wing length / Tail length / Body mass | 0.818        |
+| *Tarsiger cyanurus*        | 67              | 55           | Beak length / Head-beak length / Wing length / Tail length / Body mass | 0.810        |
+| *Poecile montanus*         | 79              | 64           | Beak length / Head-beak length / Wing length / Tail length / Body mass | 0.792        |
+| *Parus minor*              | 61              | 52           | Beak length / Head-beak length / Wing length / Tail length / Body mass | 0.789        |
+| *Poecile palustris*        | 64              | 53           | Beak length / Head-beak length / Tail length                           | 0.750        |
+| *Emberiza elegans*         | 79              | 39           | Head-beak length / Wing length / Body mass                             | 0.625        |
+| *Phylloscopus proregulus*  | 100             | 55           | Beak length / Head-beak length / Wing length / Tail length / Body mass | 0.600        |
+
+> **Note:** The variation in selected features reflects species-specific morphological responses to infection, as identified through feature importance analysis and cross-validation. This species-specific approach significantly improves prediction accuracy compared to using a universal feature set.
+
+**Outputs are saved in timestamped folders, e.g., `models_multiclass_20241215_143022/`**
+
+---
 
 ### 3. Prediction on New Data
 
