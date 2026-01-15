@@ -26,7 +26,7 @@ AMHIPT/
 │   └── generate_dummy_data.py # Script used to generate dummy data
 ├── src/
 │   ├── 01_data_cleaning.py  # Data preprocessing & English mapping
-│   ├── 02_train_model.py    # Model training & SHAP analysis
+│   ├── 02_model_train.py    # Model training & Feature importance
 │   └── 03_predict.py        # Prediction script for independent data
 ├── requirements.txt         # Python dependencies
 └── README.md                # Project documentation
