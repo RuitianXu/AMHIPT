@@ -59,7 +59,7 @@ AMHIPT/
 Input data should be a CSV/Excel file containing standard morphological metrics. Run the cleaning script to format the data and encode infection status.
 
 ```bash
-python src/clean_data.py
+python src/01_data_cleaning.py
 ```
 
 *Key Features Used:* Beak Length, Head-Beak Length, Wing Length, Tail Length, Weight.
