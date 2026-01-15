@@ -185,7 +185,7 @@ If you use AMHIPT in your research, please cite our paper:
 For questions about the methodology or data access requests, please contact:
 
 * **Corresponding Author:** Xi Huang ([huangxi@bnu.edu.cn](mailto:huangxi@bnu.edu.cn))
-* **Lead Developer:** Ruitian Xu (GitHub: @RuitianXu)
+* **Lead Developer:** Ruitian Xu (GitHub: @RuitianXu; or [ruitian_xu@163.com](mailto:ruitian_xu@163.com))
 
 ---
 
