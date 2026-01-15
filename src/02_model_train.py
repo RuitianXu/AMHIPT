@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Script: 02_train_model.py
 Description: Trains XGBoost models for avian haemosporidian infection prediction.
@@ -18,12 +17,14 @@ from sklearn.metrics import accuracy_score, classification_report
 # ================= CONFIGURATION =================
 DATA_FILE = 'clean_data.xlsx'
 
-# Features (Chinese headers in dataset) -> English: Beak, Head-Beak, Wing, Tail, Weight
+# Features used for training (Chinese headers matching the dataset)
+# English mapping: ['Beak_Length', 'Head_Beak_Length', 'Wing_Length', 'Tail_Length', 'Weight']
+# Note: '跗跖长mm' is intentionally excluded based on feature selection.
 FEATURES = ['喙长mm', '头喙mm', '翼长mm', '尾长mm', '体重g']
-TARGET = '感染状态'
-SPECIES_COL = '种名'
+TARGET = '感染状态'  # Target: 'Infection Status' (0/1)
+SPECIES_COL = '种名' # Column: 'Species Name'
 
-SAMPLE_SIZE_THRESHOLD = 40  # Minimum samples required to train
+SAMPLE_SIZE_THRESHOLD = 60  # Minimum samples required to train
 
 # Plotting settings for Chinese characters
 plt.rcParams['font.sans-serif'] = ['SimHei']
