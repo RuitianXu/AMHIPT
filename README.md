@@ -9,7 +9,7 @@
 **AMHIPT** is a machine learning pipeline designed to predict haemosporidian infection status in birds using non-invasive morphological measurements (e.g., beak length, weight). Built on **XGBoost** and interpreted via **SHAP**, it provides a cost-effective screening tool for avian researchers.
 
 <p align="center">
-  <img src="images/AMHIPT_workflow.png" alt="AMHIPT Workflow" width="85%">
+  <img src="images/pipline_for_xgb.png" alt="AMHIPT Workflow" width="85%">
 </p>
 
 ---
