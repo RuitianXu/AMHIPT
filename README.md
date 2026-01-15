@@ -176,7 +176,7 @@ The model achieving highest accuracy across all rounds was selected as the final
 
 If you use AMHIPT in your research, please cite our paper:
 
-> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***. (In Revision). *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research.
+> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***, 2026. (In Revision). *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research.
 
 ---
 
