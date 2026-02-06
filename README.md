@@ -193,6 +193,7 @@ If you use BibTeX, here is the entry:
   doi = {10.1016/j.avrs.2026.100348},
   url = {https://doi.org/10.1016/j.avrs.2026.100348}
 }
+```
 
 ---
 
