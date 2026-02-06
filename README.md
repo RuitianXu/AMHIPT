@@ -176,7 +176,23 @@ The model achieving highest accuracy across all rounds was selected as the final
 
 If you use AMHIPT in your research, please cite our paper:
 
-> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***, 2026. (In Revision). *A Novel Machine Learning Model for the Prediction of Avian Haemosporidian Infection from Morphological Data*. Avian Research.
+> **Ruitian Xu**, **Qingfeng Gan**, **Shiqiong Chuan**, **Xi Huang***. 2026. *A novel machine learning model for the prediction of avian haemosporidian infection from morphological data*. Avian Research, 17(2), 100348. https://doi.org/10.1016/j.avrs.2026.100348
+
+If you use BibTeX, here is the entry:
+
+```bibtex
+@article{Xu2026,
+  title = {A novel machine learning model for the prediction of avian haemosporidian infection from morphological data},
+  author = {Xu, Ruitian and Gan, Qingfeng and Chuan, Shiqiong and Huang, Xi},
+  journal = {Avian Research},
+  volume = {17},
+  number = {2},
+  pages = {100348},
+  year = {2026},
+  issn = {2053-7166},
+  doi = {10.1016/j.avrs.2026.100348},
+  url = {https://doi.org/10.1016/j.avrs.2026.100348}
+}
 
 ---
 
